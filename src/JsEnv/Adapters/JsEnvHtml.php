@@ -2,7 +2,7 @@
 
 namespace Core\JsEnv\Adapters;
 
-use Core\Interfaces\JsEnvironmentAdapter;
+use Core\Interfaces\JsEnvironmentAdapterInterface;
 use function is_string,
              is_int,
              is_float,
@@ -10,7 +10,7 @@ use function is_string,
              is_array,
              json_encode;
 
-class JsEnvHtml implements JsEnvironmentAdapter
+class JsEnvHtml implements JsEnvironmentAdapterInterface
 {
 
     public function export(array $data = array()): string

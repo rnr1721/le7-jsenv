@@ -2,7 +2,7 @@
 
 namespace Core\Interfaces;
 
-interface JsEnvironment
+interface JsEnvironmentInterface
 {
 
     /**

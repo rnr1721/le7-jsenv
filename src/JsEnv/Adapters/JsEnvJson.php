@@ -2,9 +2,9 @@
 
 namespace Core\JsEnv\Adapters;
 
-use Core\Interfaces\JsEnvironmentAdapter;
+use Core\Interfaces\JsEnvironmentAdapterInterface;
 
-class JsEnvJson implements JsEnvironmentAdapter
+class JsEnvJson implements JsEnvironmentAdapterInterface
 {
 
     public function export(array $data = array()): string

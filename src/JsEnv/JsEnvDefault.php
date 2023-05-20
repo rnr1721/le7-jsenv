@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Core\JsEnv;
 
-use Core\Interfaces\JsEnvironment;
-use Core\Interfaces\JsEnvironmentAdapter;
+use Core\Interfaces\JsEnvironmentInterface;
+use Core\Interfaces\JsEnvironmentAdapterInterface;
 
-class JsEnvDefault implements JsEnvironment
+class JsEnvDefault implements JsEnvironmentInterface
 {
 
     /**
@@ -18,11 +18,11 @@ class JsEnvDefault implements JsEnvironment
     
     /**
      * Method for export environment
-     * @var JsEnvironmentAdapter
+     * @var JsEnvironmentAdapterInterface
      */
-    private JsEnvironmentAdapter $jsEnv;
+    private JsEnvironmentAdapterInterface $jsEnv;
 
-    public function __construct(JsEnvironmentAdapter $jsEnv)
+    public function __construct(JsEnvironmentAdapterInterface $jsEnv)
     {
         $this->jsEnv = $jsEnv;
     }

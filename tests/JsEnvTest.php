@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Core\Interfaces\JsEnvironment;
+use Core\Interfaces\JsEnvironmentInterface;
 use Core\Factories\JsEnvFactory;
 
 require_once 'vendor/autoload.php';
@@ -21,7 +21,7 @@ class JsEnvTest extends PHPUnit\Framework\TestCase
     public function testHtml()
     {
         $jsEnv = $this->jsEnvFactory->getEnvHtml();
-        $this->assertTrue($jsEnv instanceof JsEnvironment);
+        $this->assertTrue($jsEnv instanceof JsEnvironmentInterface);
         $jsEnv->addOwn('url', 'http://site.com/ajax');
         $jsEnv->addOwn('locale', 'ru_RU');
         $jsEnv->addOwn('locale_short', 'ru');
@@ -38,7 +38,7 @@ class JsEnvTest extends PHPUnit\Framework\TestCase
     public function testJson()
     {
         $jsEnv = $this->jsEnvFactory->getEnvJson();
-        $this->assertTrue($jsEnv instanceof JsEnvironment);
+        $this->assertTrue($jsEnv instanceof JsEnvironmentInterface);
         $jsEnv->addOwn('url', 'http://site.com/ajax');
         $jsEnv->addOwn('locale', 'ru_RU');
         $jsEnv->addOwn('locale_short', 'ru');
