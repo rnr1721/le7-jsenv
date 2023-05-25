@@ -18,6 +18,9 @@ class JsEnvHtml implements JsEnvironmentAdapterInterface
      */
     public function export(array $data = array()): string
     {
+        if (count($data) === 0) {
+            return '';
+        }
         $result = "<script>\r\n";
         foreach ($data as $item => $value) {
             if (is_string($value)) {
