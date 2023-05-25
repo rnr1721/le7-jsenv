@@ -20,6 +20,12 @@ interface JsEnvironmentInterface
     public function addOwn(string $key, mixed $value): self;
 
     /**
+     * Add multiple items from array
+     * @return self
+     */
+    public function addMultiple(array $items): self;
+
+    /**
      * Export to string in some format (by Adapter)
      * @return string
      */

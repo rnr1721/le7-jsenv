@@ -44,6 +44,9 @@ use Core\Factories\JsEnvFactory;
     $jsEnv->addOwn('four', null);
     $jsEnv->addOwn('five', ["one", "two", "three"]);
 
+    // You can add multiple by key=>value array
+    // $jsEnv->addMultiple($array);
+
     $output = $jsEnv->export();
 
 ```

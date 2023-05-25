@@ -13,6 +13,9 @@ use function is_string,
 class JsEnvHtml implements JsEnvironmentAdapterInterface
 {
 
+    /**
+     * @inheridDoc
+     */
     public function export(array $data = array()): string
     {
         $result = "<script>\r\n";

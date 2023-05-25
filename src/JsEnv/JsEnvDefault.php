@@ -15,7 +15,7 @@ class JsEnvDefault implements JsEnvironmentInterface
      * @var array
      */
     private array $vars = [];
-    
+
     /**
      * Method for export environment
      * @var JsEnvironmentAdapterInterface
@@ -27,11 +27,17 @@ class JsEnvDefault implements JsEnvironmentInterface
         $this->jsEnv = $jsEnv;
     }
 
+    /**
+     * @inheridDoc
+     */
     public function getEnvironment(): array
     {
         return $this->vars;
     }
 
+    /**
+     * @inheridDoc
+     */
     public function addOwn(string $key, mixed $value): self
     {
         if (is_array($value)) {
@@ -45,6 +51,20 @@ class JsEnvDefault implements JsEnvironmentInterface
         return $this;
     }
 
+    /**
+     * @inheridDoc
+     */
+    public function addMultiple(array $items): self
+    {
+        foreach ($items as $key => $value) {
+            $this->addOwn($key, $value);
+        }
+        return $this;
+    }
+
+    /**
+     * @inheridDoc
+     */
     public function export(): string
     {
         return $this->jsEnv->export($this->getEnvironment());
