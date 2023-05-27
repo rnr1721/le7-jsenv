@@ -38,26 +38,32 @@ class JsEnvDefault implements JsEnvironmentInterface
     /**
      * @inheridDoc
      */
-    public function addOwn(string $key, mixed $value): self
+    public function addOwn(
+            string $key,
+            mixed $value,
+            bool $escapeString = true
+    ): self
     {
         if (is_array($value)) {
             $value = json_encode($value);
         }
         if (is_string($value)) {
-            $this->vars[htmlentities($key)] = htmlentities($value);
-        } else {
-            $this->vars[htmlentities($key)] = $value;
+            if ($escapeString) {
+                $value = htmlentities($value);
+            }
         }
+        $this->vars[htmlentities($key)] = $value;
+
         return $this;
     }
 
     /**
      * @inheridDoc
      */
-    public function addMultiple(array $items): self
+    public function addMultiple(array $items, bool $escapeString = true): self
     {
         foreach ($items as $key => $value) {
-            $this->addOwn($key, $value);
+            $this->addOwn($key, $value, $escapeString);
         }
         return $this;
     }
